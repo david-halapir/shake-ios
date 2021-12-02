@@ -14,7 +14,8 @@ let package = Package(
     dependencies: [
         .package(name: "SocketIO",
                  url: "https://github.com/socketio/socket.io-client-swift",
-                 .upToNextMinor(from: "16.0.0"))
+                 .upToNextMinor(from: "16.0.0")),
+        .package(name: "KSCrash", url: "https://github.com/kstenerud/KSCrash", .upToNextMinor(from: "1.15.25"))
     ],
     targets: [
         .binaryTarget(name: "Shake",
@@ -22,7 +23,8 @@ let package = Package(
         .target(name: "ShakeWrapper",
                 dependencies: [
                     .target(name: "Shake"),
-                    .product(name: "SocketIO", package: "SocketIO", condition: nil)
+                    .product(name: "SocketIO", package: "SocketIO"),
+                    .product(name: "KSCrash", package: "KSCrash")
                 ],
                 path: "ShakeWrapper"),
     ]
