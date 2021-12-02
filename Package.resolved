@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "KSCrash",
-        "repositoryURL": "https://github.com/kstenerud/KSCrash",
-        "state": {
-          "branch": null,
-          "revision": "f45a917d93928b32626f3268239c58a6cdd852bb",
-          "version": "1.15.25"
-        }
-      },
-      {
         "package": "SocketIO",
         "repositoryURL": "https://github.com/socketio/socket.io-client-swift",
         "state": {

@@ -3,7 +3,7 @@
 //  Shake
 //
 //  Created by Vedran Ozir on 03/11/2020.
-//  Copyright © 2020 DECODE HQ Ltd. All rights reserved.
+//  Copyright © 2020 Shake Technologies, Inc. All rights reserved. 
 //
 
 #import <Foundation/Foundation.h>
@@ -15,8 +15,10 @@ NS_SWIFT_NAME(NotificationEventEditor)
 
 @property (nonnull) NSString *title;
 @property (nonnull) NSString *description;
+@property (nonnull) NSString *identifier;
+@property (nonnull) NSString *timestamp;
 
--(instancetype)initWithTitle:(nonnull NSString *)title description:(nonnull NSString *)description;
+-(instancetype)initWithTitle:(nonnull NSString *)title description:(nonnull NSString *)description identifier:(NSString *)identifier timestamp:(NSString *)timestamp;
 
 @end
 

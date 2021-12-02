@@ -3,6 +3,8 @@
 // Copyright © 2020 Shake Technologies, Inc. All rights reserved.
 //
 
+typedef NS_ENUM(NSUInteger, SHKShowOption);
+
 /// Used to enable or disable specific features or invocation methods
 NS_SWIFT_NAME(ShakeConfiguration)
 @interface SHKShakeConfiguration : NSObject
@@ -15,6 +17,9 @@ NS_SWIFT_NAME(ShakeConfiguration)
 
 /// Shake will be automatically invoked when user shakes their device
 @property (nonatomic) BOOL isInvokedByShakeDeviceEvent;
+
+/// You can set how sensitive device should be to the shaking
+@property (nonatomic, assign) float shakingThreshold;
 
 /// Shake will be automatically invoked when user takes a screenshot
 @property (nonatomic) BOOL isInvokedByScreenshot;
@@ -43,8 +48,20 @@ NS_SWIFT_NAME(ShakeConfiguration)
 // Can Shake capture apps screen and audio and record into movie file
 @property (nonatomic, assign) BOOL isAutoVideoRecordingEnabled;
 
-@property (nonatomic, assign) int autoVideoRecordingClipDuration
-__attribute__((deprecated("Use 'isAutoVideoRecordingEnabled' property only, 'autoVideoRecordingClipDuration' will be removed soon!")));
+/// Shake will track crash events
+@property (nonatomic) BOOL isCrashReportingEnabled;
+
+/// It will gives a chance to user to describe the crash
+@property (nonatomic, assign) BOOL isAskForCrashDescriptionEnabled;
+
+/**
+ Setting this flag to "false" disables automatic screenshot when invoking Shake.
+ Default value is "true".
+ */
+@property (nonatomic, assign) BOOL isScreenshotIncluded;
+
+/// Pick the default Shake show option (new or home) upon invocation
+@property (nonatomic, assign) enum SHKShowOption defaultShowOption;
 
 /// Should email text field appear on Wrap-up screen?
 @property (nonatomic, assign) BOOL isEmailFieldEnabled;
