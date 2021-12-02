@@ -9,15 +9,16 @@ let package = Package(
     products: [
         .library(
             name: "Shake",
-            targets: ["Shake"]),
+            targets: ["ShakeWrapper"]),
     ],
     targets: [
         .binaryTarget(name: "Shake",
                       path: "./Sources/Shake.xcframework"),
+
         .target(name: "ShakeWrapper",
                 dependencies: [
                     .target(name: "Shake")
                 ],
-                path: "./ShakeWrapper"),
+                path: "ShakeWrapper"),
     ]
 )
