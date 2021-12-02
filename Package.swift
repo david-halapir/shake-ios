@@ -11,13 +11,18 @@ let package = Package(
             name: "Shake",
             targets: ["ShakeWrapper"]),
     ],
+    dependencies: [
+        .package(name: "SocketIO",
+                 url: "https://github.com/socketio/socket.io-client-swift",
+                 .upToNextMinor(from: "16.0.0"))
+    ],
     targets: [
         .binaryTarget(name: "Shake",
                       path: "./Sources/Shake.xcframework"),
-
         .target(name: "ShakeWrapper",
                 dependencies: [
-                    .target(name: "Shake")
+                    .target(name: "Shake"),
+                    .product(name: "SocketIO", package: "SocketIO", condition: nil)
                 ],
                 path: "ShakeWrapper"),
     ]
